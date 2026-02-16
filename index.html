@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hex Zone Control - Two Player Board Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="game-container">
+        <header>
+            <h1>Hex Zone Control</h1>
+            <div id="game-info">
+                <div id="player-info">
+                    <div class="player-panel" id="white-panel">
+                        <div class="player-indicator white-tile"></div>
+                        <span class="player-name">White</span>
+                        <span class="tile-count">Tiles: <span id="white-tiles">20</span></span>
+                        <span class="score">Score: <span id="white-score">0</span></span>
+                    </div>
+                    <div class="player-panel" id="black-panel">
+                        <div class="player-indicator black-tile"></div>
+                        <span class="player-name">Black</span>
+                        <span class="tile-count">Tiles: <span id="black-tiles">20</span></span>
+                        <span class="score">Score: <span id="black-score">0</span></span>
+                    </div>
+                </div>
+                <div id="turn-indicator">
+                    <span id="current-turn">White's Turn</span>
+                </div>
+                <div id="control-buttons">
+                    <button id="restart-btn">Restart</button>
+                    <button id="debug-btn">Debug Mode</button>
+                </div>
+            </div>
+        </header>
+        <main>
+            <canvas id="game-canvas"></canvas>
+        </main>
+        <div id="game-over" class="hidden">
+            <div class="modal-content">
+                <h2 id="winner-text">Game Over!</h2>
+                <p id="final-score"></p>
+                <button id="play-again">Play Again</button>
+            </div>
+        </div>
+    </div>
+    <script src="game.js" type="module"></script>
+</body>
+</html>
