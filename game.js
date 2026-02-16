@@ -727,7 +727,7 @@ function render() {
     // Draw ZOC highlighting on top
     if (hoveredZOCSet.size > 0) {
         const zocColor = hoveredTilePlayer === PLAYER.WHITE ? 
-            'rgba(255, 255, 255, 0.6)' : 'rgba(40, 40, 40, 0.6)';
+            'rgba(255, 255, 255, 0.35)' : 'rgba(40, 40, 40, 0.35)';
         const zocStroke = hoveredTilePlayer === PLAYER.WHITE ? 
             'rgba(255, 255, 255, 0.9)' : 'rgba(80, 80, 80, 0.9)';
         
@@ -735,7 +735,7 @@ function render() {
             const key = hexKey(hex.q, hex.r);
             if (hoveredZOCSet.has(key)) {
                 const { x, y } = hexToPixel(hex.q, hex.r);
-                drawHexagon(x, y, HEX_SIZE, zocColor, zocStroke, 4);
+                drawHexagon(x, y, HEX_SIZE, zocColor, zocStroke, 3);
             }
         }
     }
@@ -744,7 +744,7 @@ function render() {
     if (showRecentZOC) {
         const opacity = 1 - (Date.now() - gameState.lastPlacedTime) / ZOC_DISPLAY_DURATION;
         const zocColor = gameState.lastPlacedTile.player === PLAYER.WHITE ? 
-            `rgba(255, 255, 255, ${0.6 * opacity})` : `rgba(40, 40, 40, ${0.6 * opacity})`;
+            `rgba(255, 255, 255, ${0.35 * opacity})` : `rgba(40, 40, 40, ${0.35 * opacity})`;
         const zocStroke = gameState.lastPlacedTile.player === PLAYER.WHITE ? 
             `rgba(255, 255, 255, ${0.9 * opacity})` : `rgba(80, 80, 80, ${0.9 * opacity})`;
         
@@ -752,7 +752,7 @@ function render() {
             const key = hexKey(hex.q, hex.r);
             if (recentZOCSet.has(key) && !hoveredZOCSet.has(key)) {
                 const { x, y } = hexToPixel(hex.q, hex.r);
-                drawHexagon(x, y, HEX_SIZE, zocColor, zocStroke, 4);
+                drawHexagon(x, y, HEX_SIZE, zocColor, zocStroke, 3);
             }
         }
     }
